@@ -1,0 +1,14 @@
+{
+    "name": "expressapp",
+    "version": "0.0.1",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon -L --watch server/ --delay 4 --ignore node_modules/ app.js"
+    },
+    "dependencies": {
+        "express": "^4.16.2"
+    },
+    "devDependencies": {
+        "nodemon": "^1.15.1"
+    }
+}

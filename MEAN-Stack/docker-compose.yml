@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  
+  meanstack-mongodb:
+    container_name: MEAN-STACK-MongoDB
+    image: mongo:latest
+    
+  meanstack-express:
+    container_name: MEAN-STACK-Express
+    build: ./server
+    volumes:
+      - ./server:/opt/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - meanstack-mongodb
+  
+  meanstack-angular:
+    container_name: MEAN-STACK-Angular
+    build: ./angular-app
+    volumes:
+      - ./angular-app:/opt/app
+    ports:
+      - 4200:4200
+    depends_on:
+      - meanstack-express
